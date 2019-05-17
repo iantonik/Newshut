@@ -1,0 +1,13 @@
+.art-block {
+    min-width: 100%;
+    padding-bottom: 10px;
+}
+
+.btn {
+    margin-right: 10px;
+}
+
+
+.comment-form {
+    display: none;
+}

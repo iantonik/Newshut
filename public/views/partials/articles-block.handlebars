@@ -1,0 +1,38 @@
+{{#each article}}
+<div class="row border border-info p-3 mt-4" id={{id}}>
+  <div class="art-block">
+    <div class="article-title block">{{title}}</div>
+    <div class="article-url block">{{link}}</div>
+  </div>
+  <div>
+    <button class="far fa-comment-dots btn float-right add-comment" value={{id}} style="font-size: 48px;"></button>
+  </div>
+</div>
+<form class="comment-form {{id}}">
+  <input type="comment-title" class="form-control ct-{{id}}" placeholder="Enter title of your comment"></input>
+  <textarea class="form-control cb-{{id}}" style="min-width: 100%"
+    placeholder="Enter your comment about the article"></textarea>
+  <button value="{{id}}" class="btn btn-primary save-comment" id="save-comment">Save</button>
+</form>
+
+{{#each comments}}
+<div class="comment-block border border-info">
+  <div class="comment-header">
+    <div>Comment</div>
+    <div>{{createdOn}}</div>
+    <button class="del_rec far fa-trash-alt" value="{{id}}"></button>
+  </div>
+
+  <div>
+    {{title}}
+
+  </div>
+  <div>
+    {{body}}
+  </div>
+
+</div>
+
+{{/each}}
+
+{{/each}}
