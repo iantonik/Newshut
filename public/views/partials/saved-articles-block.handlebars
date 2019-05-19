@@ -1,0 +1,63 @@
+{{#each savedArticles}}
+
+<div class="saved-article id={{id}}">
+  <div class="card saved-card">
+    <div class="saved-img">
+      <img class="blog-img" src={{image}}>
+    </div>
+    <div class="saved-title"><a href="{{link}}">{{title}}</a></div>
+    <button class="far fa-comment-dots btn add-comment" value={{id}} style="font-size: 48px;"></button>
+  </div>
+
+  <form class="comment-form {{id}}">
+    <input type="comment-title" class="form-control ct-{{id}}" placeholder="Enter title of your comment"></input>
+    <textarea class="form-control cb-{{id}}" style="min-width: 100%"
+      placeholder="Enter your comment about the article"></textarea>
+    <button value="{{id}}" class="btn btn-primary save-comment" id="save-comment">Save</button>
+  </form>
+</div>
+
+{{!-- <div class="row border border-info p-3 mt-4" id={{id}}>
+  <div class="art-block">
+    <div class="article-title block">{{title}}</div>
+    <div class="article-url block">{{link}}</div>
+  </div>
+  <div>
+    <button class="far fa-comment-dots btn float-right add-comment" value={{id}} style="font-size: 48px;"></button>
+  </div>
+</div>
+<form class="comment-form {{id}}">
+  <input type="comment-title" class="form-control ct-{{id}}" placeholder="Enter title of your comment"></input>
+  <textarea class="form-control cb-{{id}}" style="min-width: 100%"
+    placeholder="Enter your comment about the article"></textarea>
+  <button value="{{id}}" class="btn btn-primary save-comment" id="save-comment">Save</button>
+</form> --}}
+
+
+
+<div class="{{id}}">
+  {{#each comments}}
+  <div class="comment-block border border-info">
+    <button class="del_rec far fa-trash-alt {{id}}" value="{{id}}"></button>
+
+    <div class="comment-header">
+      <div>Comment</div>
+      <div>{{createdOn}}</div>
+    </div>
+
+    <div>
+      {{title}}
+
+    </div>
+    <div>
+      {{body}}
+    </div>
+
+  </div>
+
+  {{/each}}
+
+</div>
+
+
+{{/each}}

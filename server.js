@@ -31,5 +31,6 @@ const axios = require("axios");
 
 // Routes
 require("./routes/scrape")(app);
-require("./routes/html-routes")(app);
+// require("./routes/html-routes")(app);
 require("./routes/comment-routes")(app);
+require("./routes/routes")(app);

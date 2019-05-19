@@ -1,13 +1,144 @@
-.art-block {
-    min-width: 100%;
-    padding-bottom: 10px;
+body{
+  background:#f4f4f4;
+    
 }
 
-.btn {
-    margin-right: 10px;
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+  
+#wrapper{
+  max-width:100%;
+  padding:50px 0px 50px 0px;
+  position:relative;
+}
+.controls{
+  text-align: center;
+  font-size: x-large;
+  background: #a4a3a3;
+  -moz-box-shadow: 0px 1px 5px 0px #676767;
+  -webkit-box-shadow: 0px 1px 5px 0px #676767;
+  box-shadow: 0px 1px 5px 0px #676767;
+}
+  
+.title{
+  width: 100%;
+  color:#292828;
+}
+  
+  
+ul{
+  width:300em;
+  list-style-type:none;
+  padding:50px 0 50px 0;
+}
+  
+#content{
+  position:relative;
+}
+  
+.card{
+  background:#fff;
+  margin-right:10px;
+  margin-bottom:40px;
+  cursor:pointer;
+  transform: scale(1);
+  visibility:visible;
+  -moz-box-shadow: 0px 1px 5px 0px #676767;
+  -webkit-box-shadow: 0px 1px 5px 0px #676767;
+  box-shadow: 0px 1px 5px 0px #676767;    
 }
 
+.carousel-card{
+  width: 25em;
+  height:350px;
+  float:left;
+}
+.save-article {
+  position: absolute;
+  bottom: 3px;
+  right: 3px;
+  color: #4a4848;
+}
 
-.comment-form {
+.add-comment {
+  position: absolute;
+  bottom: 3px;
+  right: 3px;
+  color: #4a4848;
+}
+
+.saved-card{
+  display: flex;
+  flex-direction: row;
+  /* width: 350px;
+  height: 220px; */
+}
+
+.saved-title{
+  padding: 20px;
+  vertical-align: middle;
+  font-size: x-large;
+  text-align: center;
+}
+
+.saved-img{  
+  top:0;
+  left:0;
+  display: inline;
+
+}
+  
+  .carousel-card:hover{
+    cursor:pointer;
+    transform: scale(1);
+    visibility:visible;
+    transition: all .2s ease-in-out;
+    transform: scale(1.1); 
+    z-index:100;
+    position:relative;
+    transition-timing-function:cubic-bezier(0.5, 0, 0.1, 1);
+    transition-duration:400ms;
+   
+    
+  }
+  
+   .inside-top{
+    width:100%;
+    position:absolute;
+    top:0;
+    left:0;
+  }
+
+  .carousel-image{
+    max-width: 100%;
+    }
+  
+  a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+
+  .art-title {
+    padding: 10px;
+    margin-top: 230px;
+    text-align: center;
+  }
+
+  .clearfix {
+    overflow: auto;
+    zoom: 1;
+  }
+  
+  /* Saved Content */
+  .saved-content{
+    padding:50px 0 50px 0; 
+  }
+
+  .comment-form{
     display: none;
-}
+  }
+
+
+

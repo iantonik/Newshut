@@ -19,9 +19,24 @@ $(document).ready(function (event) {
     })
 
     $(".del_rec").click(function(){
-        let id = $(this).val();
-        del(id);
+        let commentId = $(this).val();
+        let articleId = $(`.${commentId}`).parents().eq(1).attr('class');
+        del(commentId, articleId);
     })
+
+    $('#controlR').click(function() {
+        // event.preventDefault();
+        $('#content').animate({
+          marginLeft: "-=400px"
+        }, "fast");
+     });
+    
+    $('#controlL').click(function() {
+        // event.preventDefault();
+        $('#content').animate({
+          marginLeft: "+=400px"
+        }, "fast");
+    });
 });
 
 
@@ -43,11 +58,15 @@ var saveComment = function (id, data) {
     });
 };
 
-var del = function (id) {
+var del = function (commentId, articleId) {
     $.ajax({
         method: "DELETE",
-        url: `/delete/${id}`,
+        url: `/del_com/${commentId}`,
+        data: {'articleId': articleId}
     }).then(function (deleted) {
         console.log(deleted)
-    })
-}
+    }).catch((err) => {
+        console.log(err);
+    });
+};
+

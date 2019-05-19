@@ -1,20 +1,36 @@
 <nav class="navbar navbar-light bg-light">
   <a class="navbar-brand" href="#">NewsHub</a>
 </nav>
-
-
 <div class="container">
-  <div class="row">
-  <div class="col-md-6">
-    <div class="col-title">
-      Saved Articles
+
+  <div id="wrapper">
+
+    <div class="title text-center h2">Top Stories</div>
+
+    <div class="module-section clearfix">
+      <ul id="content">
+
+        {{>scrapedArticles}}
+
+      </ul>
     </div>
-    {{>articles-block}}
+
+    <div class="controls">
+      <span id="controlL" class="left-controls" role="button">
+        <b class="fa fa-chevron-left" aria-hidden="true"></b>
+      </span>
+      <span id="controlR" class="right-controls" role="button">
+        <b class="fa fa-chevron-right" aria-hidden="true"></b>
+      </span>
+    </div>
+
   </div>
 
+  <div class="row">
+    <div class="title text-center h2">Saved Articles</div>
+    <div class="saved-content">
+      {{>saved-articles-block}}
+    </div>
 
   </div>
-
-
-
 </div>
