@@ -25,19 +25,21 @@ module.exports = function (app) {
         })
     })
 
-    app.delete("/del_com/:id", function (req, res){
-       let articleId = req.body.articleId;
-       let commentId = req.params.id;
-       var result = db.Article.updateOne(
-            {'_id': articleId},
-            {'$pull': {'comments': {'_id': commentId}} },
-            { safe: true },
-            function removeCommentCb(err, obj) {
-                console.log(obj);
-            }
-        );
-        res.json(obj);
-    })
+    // app.delete("/del_com/:id", function (req, res){
+    //    let articleId = req.body.articleId;
+    //    let commentId = req.params.id;
+    //    var result = db.Article.updateOne(
+    //         {'_id': articleId},
+    //         {'$pull': {'comments': {'_id': commentId}} },
+    //         { safe: true },
+    //         function removeCommentCb(err, obj) {
+    //             console.log(obj);
+    //         }
+    //     );
+    // }).catch(function (err) {
+    //     // If an error occurred, send it to the client
+    //     res.json(err);
+    // });
 }
 
 

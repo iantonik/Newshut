@@ -2,6 +2,17 @@
 
 
 $(document).ready(function (event) {
+    $(".art-save-btn").click(function(){
+        let article = {
+            title: $(this).siblings(".art-title").text(),
+            link: $(this).siblings().find(".art-link").attr('href'),
+            image: $(this).siblings().find(".carousel-image").attr("src"),
+        }
+
+        // console.log(article)
+        saveArticle(article);
+        location.reload();
+    })
 
     $(".add-comment").on("click", function () {
         let articleId = $(this).val();
@@ -20,8 +31,9 @@ $(document).ready(function (event) {
 
     $(".del_rec").click(function(){
         let commentId = $(this).val();
-        let articleId = $(`.${commentId}`).parents().eq(1).attr('class');
-        del(commentId, articleId);
+        let articleId = $(`.${commentId}`).parents().eq(2).attr('class');
+        delComment(commentId, articleId);
+        $(`#cb-${commentId}`).remove();
     })
 
     $('#controlR').click(function() {
@@ -39,6 +51,20 @@ $(document).ready(function (event) {
     });
 });
 
+
+
+var saveArticle = function(article){
+    $.ajax({
+        method: "POST",
+        url: '/save-article',
+        data: article
+    }).then(function (data) {
+        console.log(data);
+
+    }).catch(err => {
+        console.log(err)
+    });
+}
 
 var saveComment = function (id, data) {
     $.ajax({
@@ -58,7 +84,7 @@ var saveComment = function (id, data) {
     });
 };
 
-var del = function (commentId, articleId) {
+var delComment = function (commentId, articleId) {
     $.ajax({
         method: "DELETE",
         url: `/del_com/${commentId}`,

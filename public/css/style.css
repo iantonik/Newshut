@@ -55,12 +55,27 @@ ul{
   height:350px;
   float:left;
 }
-.save-article {
+.saved-article {
+ 
+  background:#fff;
+  margin-right:10px;
+  margin-bottom:40px;
+  transform: scale(1);
+  -moz-box-shadow: 0px 1px 5px 0px #676767;
+  -webkit-box-shadow: 0px 1px 5px 0px #676767;
+  box-shadow: 0px 1px 5px 0px #676767;  
+}
+.art-save-btn{
   position: absolute;
   bottom: 3px;
   right: 3px;
   color: #4a4848;
 }
+
+i:hover {
+  color: purple;
+}
+
 
 .add-comment {
   position: absolute;
@@ -72,22 +87,27 @@ ul{
 .saved-card{
   display: flex;
   flex-direction: row;
-  /* width: 350px;
-  height: 220px; */
 }
 
 .saved-title{
   padding: 20px;
   vertical-align: middle;
-  font-size: x-large;
+  font-size: large;
   text-align: center;
 }
 
 .saved-img{  
   top:0;
   left:0;
+  max-height: 250px;
+  padding: 0;
   display: inline;
 
+}
+
+img {
+  max-width:100%;
+max-height:100%;
 }
   
   .carousel-card:hover{
@@ -135,10 +155,78 @@ ul{
   .saved-content{
     padding:50px 0 50px 0; 
   }
-
+.row{
+  margin: 20px 0 0 0;
+}
   .comment-form{
     display: none;
+    color: #4a4848;
+    background:#fff;
+    padding: 10px;
+    margin-right:10px;
+    margin-bottom:10px;
+    transform: scale(1);
+    -moz-box-shadow: 0px 1px 5px 0px #676767;
+    -webkit-box-shadow: 0px 1px 5px 0px #676767;
+    box-shadow: 0px 1px 5px 0px #676767;  
   }
 
+  
+.bubble 
+{
+position: relative;
+width: 100%;
+padding: 10px;
+margin-top: 20px;
+background: #FFFFFF;
+-webkit-border-radius: 23px;
+-moz-border-radius: 23px;
+border-radius: 23px;
+border: #7F7F7F solid 2px;
+}
 
+.bubble:after 
+{
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 0 15px 15px;
+border-color: #FFFFFF transparent;
+display: block;
+width: 0;
+z-index: 1;
+margin-left: -15px;
+top: -15px;
+left: 10%;
+}
 
+.bubble:before 
+{
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 0 16px 16px;
+border-color: #7F7F7F transparent;
+display: block;
+width: 0;
+z-index: 0;
+margin-left: -16px;
+top: -18px;
+left: 10%;
+}
+
+.del_rec{
+  
+}
+
+.comment-date{
+  display: inline;
+}
+
+.card-header{
+  margin: 0;
+  padding: 0;
+}
+.comment-content{
+  padding: 0 10px 0 10px;
+}

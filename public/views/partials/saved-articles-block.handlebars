@@ -1,22 +1,25 @@
 {{#each savedArticles}}
-
-<div class="saved-article id={{id}}">
-  <div class="card saved-card">
-    <div class="saved-img">
-      <img class="blog-img" src={{image}}>
+<div class="saved-container id={{id}}">
+  <div class="row saved-article">
+    <div class="saved-card">
+      <div class="saved-img col-5">
+        <img class="blog-img" src={{image}}>
+      </div>
+      <div class="title col-7">
+        <div class="saved-title"><a href="{{link}}">{{title}}</a></div>
+      </div>
+      <button class="far fa-comment-dots btn add-comment" value={{id}} style="font-size: 40px;"></button>
     </div>
-    <div class="saved-title"><a href="{{link}}">{{title}}</a></div>
-    <button class="far fa-comment-dots btn add-comment" value={{id}} style="font-size: 48px;"></button>
   </div>
-
-  <form class="comment-form {{id}}">
-    <input type="comment-title" class="form-control ct-{{id}}" placeholder="Enter title of your comment"></input>
-    <textarea class="form-control cb-{{id}}" style="min-width: 100%"
-      placeholder="Enter your comment about the article"></textarea>
-    <button value="{{id}}" class="btn btn-primary save-comment" id="save-comment">Save</button>
-  </form>
+  <div class="row comment-form {{id}}">
+    <form>
+      <input type="comment-title my-2" class="form-control ct-{{id}}" placeholder="Enter title of your comment"></input>
+      <textarea class="form-control my-2 cb-{{id}}" style="min-width: 100%"
+        placeholder="Enter your comment about the article"></textarea>
+      <button value="{{id}}" class="btn btn-secondary btn-sm btn-block save-comment" id="save-comment">Save</button>
+    </form>
+  </div>
 </div>
-
 {{!-- <div class="row border border-info p-3 mt-4" id={{id}}>
   <div class="art-block">
     <div class="article-title block">{{title}}</div>
@@ -37,22 +40,20 @@
 
 <div class="{{id}}">
   {{#each comments}}
-  <div class="comment-block border border-info">
-    <button class="del_rec far fa-trash-alt {{id}}" value="{{id}}"></button>
+  <div class="bubble" id="cb-{{id}}">
 
-    <div class="comment-header">
-      <div>Comment</div>
-      <div>{{createdOn}}</div>
+    <div class="card-header">
+      <div class="comment-date">{{createdOn}}</div>
+      <button class="del_rec far fa-trash-alt {{id}} float-right" value="{{id}}"></button>
     </div>
-
-    <div>
-      {{title}}
-
+    <div class="comment-content">
+      <h5>
+        {{title}}
+      </h5>
+      <div>
+        {{body}}
+      </div>
     </div>
-    <div>
-      {{body}}
-    </div>
-
   </div>
 
   {{/each}}

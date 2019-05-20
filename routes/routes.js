@@ -33,4 +33,31 @@ module.exports = function (app) {
     });
   });
 
+
+  app.post("/save-article", function (req, res) {
+    let article = req.body;
+
+    db.Article.create(article)
+      .then(function (dbArticle) {
+        console.log(dbArticle);
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+  });
+
+  app.delete("/del_com/:id", function (req, res) {
+    let articleId = req.body.articleId;
+    let commentId = req.params.id;
+    var result = db.Article.updateOne(
+      { '_id': articleId },
+      { '$pull': { 'comments': { '_id': commentId } } },
+      { safe: true },
+      function removeCommentCb(err, obj) {
+        console.log(obj);
+      }
+    );
+  })
+
+
 }
