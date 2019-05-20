@@ -8,14 +8,12 @@ $(document).ready(function (event) {
             link: $(this).siblings().find(".art-link").attr('href'),
             image: $(this).siblings().find(".carousel-image").attr("src"),
         }
-
-        // console.log(article)
         saveArticle(article);
         location.reload();
     })
 
-    $(".add-comment").on("click", function () {
-        let articleId = $(this).val();
+    $(".add-comment").click(function () {
+        let articleId = $(this).attr('value');
         $(`.${articleId}`).show();
 
     });
@@ -30,21 +28,25 @@ $(document).ready(function (event) {
     })
 
     $(".del_rec").click(function(){
-        let commentId = $(this).val();
+        let commentId = $(this).attr('value');
         let articleId = $(`.${commentId}`).parents().eq(2).attr('class');
         delComment(commentId, articleId);
         $(`#cb-${commentId}`).remove();
     })
 
+    $(".del_art").click(function(){
+        let artId = $(this).attr('value');
+        delArticle(artId);
+        location.reload();
+    })
+
     $('#controlR').click(function() {
-        // event.preventDefault();
         $('#content').animate({
           marginLeft: "-=400px"
         }, "fast");
      });
     
     $('#controlL').click(function() {
-        // event.preventDefault();
         $('#content').animate({
           marginLeft: "+=400px"
         }, "fast");
@@ -60,9 +62,19 @@ var saveArticle = function(article){
         data: article
     }).then(function (data) {
         console.log(data);
-
     }).catch(err => {
         console.log(err)
+    });
+}
+
+var delArticle = function(id){
+    $.ajax({
+        method: "DELETE",
+        url: `/del_art/${id}`
+    }).then(function (deleted) {
+        console.log(deleted)
+    }).catch((err) => {
+        console.log(err);
     });
 }
 
@@ -75,8 +87,6 @@ var saveComment = function (id, data) {
             body: data.body,
         }
     }).then(function (data) {
-        //update front end???
-        // add as top child div to article identified by id
         console.log(data);
 
     }).catch(err => {

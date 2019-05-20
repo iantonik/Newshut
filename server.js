@@ -1,5 +1,9 @@
 const express = require ('express');
 const exphbs  = require('express-handlebars');
+var Handlebars = require("handlebars");
+var MomentHandler = require("handlebars.moment");
+MomentHandler.registerHelpers(Handlebars);
+
 const port = process.env.PORT || 3000;
 
 const app = express();
@@ -14,25 +18,15 @@ app.set('view engine', 'handlebars');
 
 app.listen(port, () => console.log(`App listening on port ${port}!`));
 
-// app.get('/', (req, res) => res.render('index'));
-
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/newshub';
 const mongoose = require('mongoose');
 mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
-// mongoose.connect('mongodb://localhost/newshub', {useNewUrlParser: true});
 mongoose.set('useFindAndModify', false);
-// const db = mongoose.connection;
 const db = require("./models");
 
-
-// db.on('error', console.error.bind(console, 'connection error:'));
-// db.once('open', () => console.log("DB connected"));
 const cheerio = require('cheerio');
 const axios = require("axios");
 
 // Routes
-require("./routes/scrape")(app);
-// require("./routes/html-routes")(app);
-require("./routes/comment-routes")(app);
 require("./routes/routes")(app);
 
