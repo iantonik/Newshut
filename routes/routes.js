@@ -11,9 +11,9 @@ module.exports = function (app) {
 
       let results = [];
 
-      $('ul.slides li').each(function (i, element) {
-        let title = $(element).find('h2.gdl-slider-title').text();
-        let link = $(element).find('a').attr('href');
+      $('div.blog-content-wrapper').each(function (i, element) {
+        let title = $(element).find('h2 a').text();
+        let link = $(element).find('.blog-title a').attr('href');
         let image = $(element).find('img').attr('src')
 
         results.push({
